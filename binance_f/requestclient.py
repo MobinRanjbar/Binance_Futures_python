@@ -487,8 +487,7 @@ class RequestClient(object):
         """
         response = call_sync(self.request_impl.get_top_long_short_positions(symbol, period, startTime, endTime, limit))
         self.refresh_limits(response[1])
-        #return response[0]
-        return response
+        return response[0]
 
     def get_global_long_short_accounts(self, symbol: 'str', period: 'str', startTime: 'str' = None, endTime: 'str' = None, limit: 'int' = 30) -> any:
         """
