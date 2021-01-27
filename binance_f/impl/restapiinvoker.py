@@ -35,16 +35,14 @@ def call_sync(request):
         json_wrapper = parse_json_from_string(response.text)
         #print(response.text)
         check_response(json_wrapper)
-        return response.text
-        #return (request.json_parser(json_wrapper),limits)
+        return (request.json_parser(json_wrapper),limits)
     elif request.method == "POST":
         response = requests.post(request.host + request.url, headers=request.header)
         limits = get_limits_usage(response)
         json_wrapper = parse_json_from_string(response.text)
         #print(response.text)
         check_response(json_wrapper)
-        return response.text
-        #return (request.json_parser(json_wrapper),limits)
+        return (request.json_parser(json_wrapper),limits)
     elif request.method == "DELETE":
         response = requests.delete(request.host + request.url, headers=request.header)
         limits = get_limits_usage(response)
